@@ -1,4 +1,4 @@
-package com.example.project_vi_term_mobile_app
+package com.example.trying_navigation_with_myapp
 
 import org.junit.Test
 
