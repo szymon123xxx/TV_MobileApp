@@ -14,13 +14,18 @@ data class ListData(
     val id: String)
 
 data class DetailData(
-    val name: String?,
-    val start_date: String?,
-    val country: String?,
-    val description: String?,
-    val end_date: String?,
-    val runtime: String?,
-    val rating: String,
-    val genres: List<String>
+    val tvShow: DetailData2?,
+//    val tvShow: List<DetailData2>
+//    val start_date: String?,
+//    val country: String?,
+//    val description: String?,
+//    val end_date: String?,
+//    val runtime: String?,
+//    val rating: String,
+//    val genres: List<String>
 )
+
+data class DetailData2(
+    val name: String?,
+    )
 

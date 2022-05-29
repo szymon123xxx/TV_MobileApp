@@ -29,7 +29,7 @@ class HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        //        val button = view.findViewById<Button>(R.id.buttonPanel)
+//        val button = view.findViewById<Button>(R.id.buttonPanel)
 //        button.setOnClickListener {
 //            findNavController().navigate(R.id.action_homeFragment_to_detailFragment)
 //        }

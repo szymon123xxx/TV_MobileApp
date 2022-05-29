@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -45,10 +46,13 @@ class RecyclerAdapter: PagingDataAdapter<ListData, RecyclerAdapter.MyViewHolder>
                 val bundle = Bundle()
                 val activity = p0!!.context as AppCompatActivity
                 val detailFragment = DetailFragment()
-                bundle.putString("id", binding.id.text.toString())
-                detailFragment.arguments = bundle
-                activity.supportFragmentManager.beginTransaction().replace(R.id.rec, detailFragment)
-                    .addToBackStack(null).commit()
+
+                itemView.findNavController().navigate(R.id.action_homeFragment_to_detailFragment)
+
+//                bundle.putString("id", binding.id.text.toString())
+//                detailFragment.arguments = bundle
+//                activity.supportFragmentManager.beginTransaction().replace(R.id.rec, detailFragment)
+//                    .addToBackStack(null).commit()
             }
         }
 

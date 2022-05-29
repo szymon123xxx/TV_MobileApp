@@ -14,5 +14,11 @@ class RetrofitBuilder {
                 .addConverterFactory(GsonConverterFactory.create()) //So in simple way it convert JSON that we got from server into java object that can be use in Android Project
                 .build()
         }
+
+//        val getDataBuilder: Service by lazy {
+//            getRetrofitInstance().create(Service::class.java)
+//        }
+//
+//        val apiClient = ApiClient(getDataBuilder)
     }
 }
