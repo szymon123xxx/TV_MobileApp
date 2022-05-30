@@ -47,7 +47,9 @@ class RecyclerAdapter: PagingDataAdapter<ListData, RecyclerAdapter.MyViewHolder>
                 val activity = p0!!.context as AppCompatActivity
                 val detailFragment = DetailFragment()
 
-                itemView.findNavController().navigate(R.id.action_homeFragment_to_detailFragment)
+                itemView.findNavController().navigate(R.id.action_homeFragment_to_detailFragment, Bundle().apply {
+                    putInt("movieId", binding.id.text.toString().toInt())
+                })
 
 //                bundle.putString("id", binding.id.text.toString())
 //                detailFragment.arguments = bundle

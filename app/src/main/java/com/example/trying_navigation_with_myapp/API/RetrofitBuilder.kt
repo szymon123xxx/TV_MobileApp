@@ -1,5 +1,6 @@
 package com.example.project_vi_term_mobile_app.API
 
+import com.example.trying_navigation_with_myapp.API.ApiClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -15,10 +16,10 @@ class RetrofitBuilder {
                 .build()
         }
 
-//        val getDataBuilder: Service by lazy {
-//            getRetrofitInstance().create(Service::class.java)
-//        }
-//
-//        val apiClient = ApiClient(getDataBuilder)
+        val getDataBuilder: Service by lazy {
+            getRetrofitInstance().create(Service::class.java)
+        }
+
+        val apiClient = ApiClient(getDataBuilder)
     }
 }

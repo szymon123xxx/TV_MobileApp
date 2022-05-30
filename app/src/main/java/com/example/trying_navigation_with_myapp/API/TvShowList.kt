@@ -15,17 +15,16 @@ data class ListData(
 
 data class DetailData(
     val tvShow: DetailData2?,
-//    val tvShow: List<DetailData2>
-//    val start_date: String?,
-//    val country: String?,
-//    val description: String?,
-//    val end_date: String?,
-//    val runtime: String?,
-//    val rating: String,
-//    val genres: List<String>
 )
 
 data class DetailData2(
     val name: String?,
+    val start_date: String?,
+    val country: String?,
+    val description: String?,
+    val end_date: String?,
+    val runtime: String?,
+    val rating: String,
+    //    val genres: List<String>
     )
 

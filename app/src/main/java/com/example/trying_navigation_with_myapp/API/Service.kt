@@ -17,6 +17,6 @@ interface Service {
 //    suspend fun getDetailData(@Query("q") query: Int): Response<DetailData>
 
     @GET("show-details")
-    fun getDetailData(@Query("q") query: Int): Call<DetailData>
+    suspend fun getDetailData(@Query("q") query: Int): Response<DetailData>
 
 }
