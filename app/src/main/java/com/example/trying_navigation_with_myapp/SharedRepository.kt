@@ -8,6 +8,7 @@ import retrofit2.Response
 class SharedRepository {
 
     suspend fun getMovieById( movieId: Int ): DetailData? {
+
         val request = RetrofitBuilder.apiClient.getMovieById(movieId)
 
         if (request.isSuccessful){

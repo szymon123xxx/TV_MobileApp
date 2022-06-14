@@ -17,6 +17,11 @@
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.trying_navigation_with_myapp.Fragments.DetailFragment"
-        android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        android:label="fragment_detail2"
+        tools:layout="@layout/fragment_detail" >
+        <action
+            android:id="@+id/action_detailFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment" />
+    </fragment>
 </navigation>

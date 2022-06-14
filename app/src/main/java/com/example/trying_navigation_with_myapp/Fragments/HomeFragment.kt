@@ -29,20 +29,12 @@ class HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-//        val button = view.findViewById<Button>(R.id.buttonPanel)
-//        button.setOnClickListener {
-//            findNavController().navigate(R.id.action_homeFragment_to_detailFragment)
-//        }
-
         initializeRecyclerView()
         initializeViewModel()
         return _binding.root
-        // drugim sposobem w return bedzie
-        //return binding.root
     }
 
     private fun initializeRecyclerView(){
-        //a tu binding.recyclerView.apply
         _binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(activity)
 

@@ -21,10 +21,10 @@ data class DetailData2(
     val name: String?,
     val start_date: String?,
     val country: String?,
-    val description: String?,
-    val end_date: String?,
+    val status: String?,
     val runtime: String?,
     val rating: String,
-    //    val genres: List<String>
+    val description: String?,
+    val image_thumbnail_path: String?,
     )
 

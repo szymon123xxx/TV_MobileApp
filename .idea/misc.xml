@@ -5,7 +5,8 @@
       <map>
         <entry key="..\:/xxx/Trying_navigation_with_myApp/app/src/main/res/drawable/background_gradient.xml" value="0.2545" />
         <entry key="..\:/xxx/Trying_navigation_with_myApp/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
-        <entry key="..\:/xxx/Trying_navigation_with_myApp/app/src/main/res/layout/fragment_detail.xml" value="0.36666666666666664" />
+        <entry key="..\:/xxx/Trying_navigation_with_myApp/app/src/main/res/layout/fragment_detail.xml" value="0.33" />
+        <entry key="..\:/xxx/Trying_navigation_with_myApp/app/src/main/res/layout/fragment_detail2.xml" value="0.25" />
         <entry key="..\:/xxx/Trying_navigation_with_myApp/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
         <entry key="..\:/xxx/Trying_navigation_with_myApp/app/src/main/res/layout/recycler_view.xml" value="0.36666666666666664" />
       </map>

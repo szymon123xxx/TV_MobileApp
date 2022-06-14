@@ -1,13 +1,8 @@
 package com.example.project_vi_term_mobile_app
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.paging.PagingDataAdapter
@@ -17,7 +12,6 @@ import com.bumptech.glide.Glide
 import com.example.project_vi_term_mobile_app.API.ListData
 import com.example.trying_navigation_with_myapp.Fragments.DetailFragment
 import com.example.trying_navigation_with_myapp.R
-
 import com.example.trying_navigation_with_myapp.databinding.RecyclerViewBinding
 
 class RecyclerAdapter: PagingDataAdapter<ListData, RecyclerAdapter.MyViewHolder>(DiffUtilCallBack()) {
@@ -25,36 +19,23 @@ class RecyclerAdapter: PagingDataAdapter<ListData, RecyclerAdapter.MyViewHolder>
     override fun onBindViewHolder(holder: RecyclerAdapter.MyViewHolder, position: Int) {
         val positionItem = getItem(position)
         holder.bind(positionItem!!)
-//        holder.bind(getItem(position)!!)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerAdapter.MyViewHolder {
-//        val layout = LayoutInflater.from(parent.context).inflate(R.layout.recycler_view, parent, false)
-//        return MyViewHolder(layout)
         return MyViewHolder(RecyclerViewBinding.inflate(LayoutInflater.from(parent.context), parent, false))
 
     }
 
     class MyViewHolder(private val binding: RecyclerViewBinding): RecyclerView.ViewHolder(binding.root){
-//        private val image: ImageView = view.findViewById(R.id.image)
-//        private val title: TextView = view.findViewById(R.id.title)
-//        private val startDate: TextView = view.findViewById(R.id.start_date)
-//        private val country: TextView = view.findViewById(R.id.country)
+
 
         init {
             itemView.setOnClickListener { p0 ->
-                val bundle = Bundle()
-                val activity = p0!!.context as AppCompatActivity
-                val detailFragment = DetailFragment()
 
                 itemView.findNavController().navigate(R.id.action_homeFragment_to_detailFragment, Bundle().apply {
                     putInt("movieId", binding.id.text.toString().toInt())
                 })
 
-//                bundle.putString("id", binding.id.text.toString())
-//                detailFragment.arguments = bundle
-//                activity.supportFragmentManager.beginTransaction().replace(R.id.rec, detailFragment)
-//                    .addToBackStack(null).commit()
             }
         }
 

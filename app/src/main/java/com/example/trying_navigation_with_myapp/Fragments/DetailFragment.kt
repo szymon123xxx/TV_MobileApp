@@ -1,5 +1,6 @@
 package com.example.trying_navigation_with_myapp.Fragments
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import com.bumptech.glide.Glide
 import com.example.project_vi_term_mobile_app.API.DetailData
 import com.example.project_vi_term_mobile_app.API.DetailData2
 import com.example.project_vi_term_mobile_app.API.RetrofitBuilder
@@ -15,6 +18,8 @@ import com.example.trying_navigation_with_myapp.DetailViewModel
 import com.example.trying_navigation_with_myapp.R
 import com.example.trying_navigation_with_myapp.databinding.FragmentDetailBinding
 import com.example.trying_navigation_with_myapp.databinding.FragmentHomeBinding
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.newSingleThreadContext
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -31,20 +36,19 @@ class DetailFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        arguments?.let {
-//
-//        }
+        println(Thread.currentThread().name)
+
     }
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_detail, container, false)
+
         _binding = FragmentDetailBinding.inflate(inflater, container, false)
-//        val data =arguments
-//        _binding.textFragment.text = data!!.get("id").toString()
+
         val incomingData = requireArguments().getInt("movieId")
+
         detailViewModel.refreshMovie(incomingData)
         detailViewModel.movieByIdLiveData.observe(viewLifecycleOwner){ response->
             if (response == null){
@@ -52,35 +56,19 @@ class DetailFragment : Fragment() {
                 return@observe
             }
 
-            _binding.textFragment.text = response.tvShow?.name.toString()
-//            println(response.name.toString() + "TUTAJ")
+            Glide.with(_binding.imageDetail)
+                .load(response.tvShow?.image_thumbnail_path)
+                .into(_binding.imageDetail)
+
+            _binding.nameDetail.text = response.tvShow?.name.toString()
+            _binding.startDateDetail.text = response.tvShow?.start_date.toString()
+            _binding.countryDetail.text = response.tvShow?.country.toString()
+            _binding.endDateDetail.text = response.tvShow?.status.toString()
+            _binding.runtimeDetail.text = response.tvShow?.runtime.toString() + " min"
+            _binding.ratingDetail.text = response.tvShow?.rating.toString()
+            _binding.descriptionDetail.text = response.tvShow?.description.toString()
         }
 
-//        val BASE_URL = "https://www.episodate.com/api/"
-//        val retrofit = Retrofit.Builder()
-//                .baseUrl(BASE_URL)
-//                .addConverterFactory(GsonConverterFactory.create()) //So in simple way it convert JSON that we got from server into java object that can be use in Android Project
-//                .build()
-//
-//        val service: Service = retrofit.create(Service::class.java)
-//
-//        service.getDetailData(29560).enqueue(object : Callback<DetailData> {
-//            override fun onResponse(call: Call<DetailData>, response: Response<DetailData>) {
-//                println(response.toString() + "TU RESPONSE")
-//
-//                if (!response.isSuccessful){
-//                    println("Zły CALL")
-//                }
-////                val body = response.body()!!
-////                val name = body.name
-//
-//                _binding.textFragment.text = response.body()?.tvShow?.name.toString()
-//            }
-//
-//            override fun onFailure(call: Call<DetailData>, t: Throwable) {
-//                println("Nie DZIAłA")
-//            }
-//        })
         return _binding.root
     }
 

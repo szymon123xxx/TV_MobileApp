@@ -9,7 +9,6 @@ import java.lang.Exception
 class PagingOrigin(val apiService: Service): PagingSource<Int, ListData>() {
 
     override fun getRefreshKey(state: PagingState<Int, ListData>): Int? {
-//        return state.anchorPosition
         return null
     }
 
@@ -17,14 +16,6 @@ class PagingOrigin(val apiService: Service): PagingSource<Int, ListData>() {
         return try {
             val nextPage: Int = params.key ?: 1
             val response = apiService.getApiData(nextPage)
-//            var nextPageNumber: Int? = null
-//
-//            if (response.page != null){
-//                val uri = Uri.parse(response.page.toString())
-//                System.out.println("TO JA!!! : $response")
-//                val nextPageQuery = uri.getQueryParameter("page")
-//                nextPageNumber = nextPageQuery?.toInt()
-//            }
 
              LoadResult.Page(data = response.tv_shows,
                             prevKey = if (nextPage == 1) null else -1,

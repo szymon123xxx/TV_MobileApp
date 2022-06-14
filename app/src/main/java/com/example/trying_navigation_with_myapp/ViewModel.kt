@@ -9,6 +9,7 @@ import com.example.project_vi_term_mobile_app.API.ListData
 import com.example.project_vi_term_mobile_app.API.RetrofitBuilder
 import com.example.project_vi_term_mobile_app.API.Service
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.launch
 
 
 class ViewModel: ViewModel() {
