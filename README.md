@@ -1,5 +1,4 @@
 # TV_MobileApp
-Retrofit, Coroutines, Paging3, View Binding, Glide
 Welcome to TV App, application that brings you a curated collection of films from a free API.
 Built using technologies including Retrofit, Paging Library, Glide, Coroutines, and Navigation, this app offers a seamless user experience for discovering and exploring your favorite films.
 
